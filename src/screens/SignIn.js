@@ -4,7 +4,6 @@ import { Colors } from 'react-native-paper';
 import {COLORS, FONTS} from '../constants/colors'
 import * as SecureStore from 'expo-secure-store';
 
-
 import axios from 'axios';
 
 const styles = StyleSheet.create({
@@ -141,7 +140,7 @@ text:{
 });
 
 
-export default function SignIn(){
+export default function SignIn({navigation}){
 
      const [email, setEmail] = useState("");
 
@@ -209,7 +208,12 @@ export default function SignIn(){
         </View>
         <View>
         <Text style={styles.last}> Forgot password</Text>
-        <Text style={styles.last1}> Don't have an account?<Text style={styles.last2}> Register</Text></Text>
+        <Text style={styles.last1}> Don't have an account?
+        <Text style={styles.last2}
+        onPress={()=> {
+          navigation.navigate("Register")
+        }}
+        > Register</Text></Text>
         </View>
     </View></View>
         </>
